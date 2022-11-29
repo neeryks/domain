@@ -6,10 +6,10 @@ li = []
 
 def test(domain,name):
     try:
-        domaindat = whois.whois(f"{domain}")
+        domaindat = whois.whois(f"{domain}.com")
     except:
         return
-    li.append(f"{domain} {domaindat['expiration_date']}")
+    li.append(f"{domain}.com {domaindat['expiration_date']}")
     return 
 
 def mult(loca):
@@ -18,11 +18,11 @@ def mult(loca):
         wrtlist = wrt.split("\n")
     for w in wrtlist:
         pool.apply_async(test,(w,"ntest"))
-    with open("new.txt","a") as datee:
+    with open("newr.txt","a") as datee:
         for x in li:
-            datee.write(f"{x}\n")
+           pool.apply_async(datee.write(f"{x}\n"))
         
     pool.close()
     pool.join() 
 
-mult("ndat.txt")
+mult("dicti/4tst.txt")
