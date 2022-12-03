@@ -1,5 +1,6 @@
 
 
+from tokenize import Number
 import whois
 from multiprocessing.pool import ThreadPool as Pool
 
@@ -18,7 +19,7 @@ class DomainTester:
         else:
             nword = f'{word}{dat}'
             nwordr = f'{dat}{word}'
-        if len(dat)<7:
+        if len(dat)<6 and "." not in dat and "-" not in dat and Number not in dat:
                 try:
                     ndat =whois.whois(f'{nword}.com')
                 except:
