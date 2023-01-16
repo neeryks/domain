@@ -12,20 +12,20 @@ def testernet(wrd):
     try:
         do = whois.whois(f'{wrd}.net')
     except:
-        with open("4tstr.txt",'a') as wrt:
+        with open("4tst.txt",'a') as wrt:
             wrt.write(f'{wrd}.net\n')
 
 def testerorg(wrd):
     try:
         do = whois.whois(f'{wrd}.org')
     except:
-        with open("4tstr.txt",'a') as wrt:
+        with open("4tst.txt",'a') as wrt:
             wrt.write(f'{wrd}.org\n')
 
 if __name__=="__main__":
     pool = Pool(128)
     count = 0
-    with open("5txt.txt","r") as wrdlster:
+    with open("dicti/4tst.txt","r") as wrdlster:
         nwrdlst = wrdlster.read()
         wrdlst = nwrdlst.split("\n")
         for wrd in wrdlst:
